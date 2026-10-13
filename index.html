@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Level-Up Day ♡</title>
+  <meta name="description" content="Just a lil something for u." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Sparkle Trail Canvas -->
+  <canvas id="trail-canvas"></canvas>
+
+  <!-- ===== SURPRISE START ===== -->
+  <div id="surprise-start" class="surprise-start">
+    <div class="start-content">
+      <div class="loading-spinner"></div>
+      <p class="loading-text" id="loading-text">intercepting secure connection...</p>
+    </div>
+  </div>
+
+  <!-- ===== FUN FACT OVERLAY ===== -->
+  <div id="fun-fact" class="fun-fact hidden">
+    <div class="fact-box">
+      <div class="fact-icon">💡</div>
+      <p class="fact-title">Hi Odrey</p>
+      <p class="fact-text">Today is your Special Day😊<br>So i made this O_O<br>for u</p><p>Pelan aja scrollnya ya... </p>
+      
+      <button class="fact-btn" id="fact-ok">Pencet Aku<3</button>
+    </div>
+  </div>
+
+  <!-- ===== LANDING ===== -->
+  <section id="landing" class="landing hidden">
+    <div class="landing-content">
+      <div class="sparkle-icon">✧</div>
+      <h2 class="landing-title">oke sekarang tinggal scrool" ajaaa</h2>
+      <p class="landing-sub">swipe up or tap to open</p>
+      <div class="landing-arrow">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARD DECK ===== -->
+  <div id="deck" class="deck hidden">
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <!-- Bottom nav -->
+    <div class="bottomnav">
+      <button class="nav-btn" id="btn-prev" disabled>← back</button>
+      <span class="nav-counter" id="nav-counter">1 / 11</span>
+      <button class="nav-btn" id="btn-next">next →</button>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-container" id="cards-container">
+
+      <!-- 1: GREETING + FOTO (INTERACTIVE) -->
+      <div class="card active" data-i="0">
+        <div class="card-body card-greeting">
+          <img class="floral-decor floral-tl"
+            src="img/Snapchat-1280225115.jpg" alt="">
+          <img class="floral-decor floral-br"
+            src="img/bunga.jpg" alt="">
+          <div class="deco-ricbbon top-left"></div>
+          <div class="deco-ribbon bottom-right"></div>
+
+          <!-- Animated greeting text -->
+          <div class="greeting-anim">
+            <p class="greet-line g1">Hi..,</p>
+            <p class="greet-line g2">it's your day 🎂</p>
+          </div>
+
+          <!-- Photo with tap-to-pop interaction -->
+          <div class="photo-frame" id="photo-tap">
+            <div class="photo-glow"></div>
+            <img src="img/Snapchat-554721963.jpg" alt="Foto" class="photo" />
+            <div class="floating-sparkle s1">✧</div>
+            <div class="floating-sparkle s2">✦</div>
+            <p class="tap-me" id="tap-me">tap me ♡</p>
+          </div>
+
+          <p class="card-tag">happy level-up day</p>
+          <h1 class="card-name">Odrey</h1>
+
+          <!-- Age counter animation -->
+          <div class="age-reveal">
+            <div class="age-circle"><span id="age-num">18</span></div>
+            <p class="age-label">tahun, and counting ✨</p>
+          </div>
+
+          <p class="card-date">14 Oktober 2008</p>
+        </div>
+        <canvas class="fx-layer" data-fx="confetti"></canvas>
+      </div>
+
+      <!-- 2: FOTO + QUOTE -->
+      <div class="card" data-i="1">
+        <div class="card-body card-photo-quote">
+          <img class="img/download (2).jpg"
+            alt="decor">
+          <img class="floral-decor floral-br" src="img/download (5).jpg"
+            alt="decor">
+          <div class="photo-full">
+            <img src="img/Snapchat-554721963.jpg" alt="Foto" class="photo" />
+            <div class="photo-overlay"></div>
+          </div>
+          <div class="pq-text">
+            <p class="pq-quote">SELAMAT ULTAH SUGAR POPPPP,idk how i meet someone like you,
+              u are sweet girl with purest heart🫶."</p>
+            <p class="pq-sub">— and honestly, im still stalk u ,a little🤏 just to make sure u doing good</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: PESAN (typewriter) -->
+      <div class="card" data-i="2">
+        <div class="card-body card-msg">
+          <img class="floral-decor floral-tl" src="img/download (3).jpg"
+            alt="decor">
+          <img class="floral-decor floral-br"
+            src="img/download (4).jpg" alt="decor">
+          <div class="card-border-glow"></div>
+          <p class="card-tag">a lil message</p>
+          <div class="msg-box">
+            <p id="typed-text"></p>
+            
+          </div>
+          <p class="msg-sign" id="msg-sign">— Ibet</p>
+        </div>
+      </div>
+
+      <!-- 4: FLIP CARDS -->
+      <div class="card" data-i="3">
+        <div class="card-body card-flips">
+          <p class="card-tag">what i lowkey like from u</p>
+          <p class="card-hint">tap the cards ♡</p>
+          <div class="flip-grid">
+            <div class="flip" onclick="this.classList.toggle('open')">
+              <div class="flip-inner">
+                <div class="flip-f"><span class="flip-num">01</span>of course music taste</div>
+                <div class="flip-b">literally hampir semua lagu ato artist yg lu denger gw jg denger ur music taste is goated.</div>
+              </div>
+            </div>
+            <div class="flip" onclick="this.classList.toggle('open')">
+              <div class="flip-inner">
+                <div class="flip-f"><span class="flip-num">02</span>the way u talk</div>
+                <div class="flip-b">walaupun yaaa.... ga pernah se deep itu tapi but have conversation with u make me happy .</div>
+              </div>
+            </div>
+            <div class="flip" onclick="this.classList.toggle('open')">
+              <div class="flip-inner">
+                <div class="flip-f"><span class="flip-num">03</span>ur intelegency</div>
+                <div class="flip-b">dari dulu yak sampe skrg kok bisa lu sepinter dan sejago ituuu especially bhs mandarin.</div>
+              </div>
+            </div>
+            <div class="flip" onclick="this.classList.toggle('open')">
+              <div class="flip-inner">
+                <div class="flip-f"><span class="flip-num">04</span>food that u cook</div>
+                <div class="flip-b">kalo bisa jdi beli life time dapat masakan apapun buatan lu,gasss brp pun.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: MINI QUIZ (NEW) -->
+      <div class="card" data-i="4">
+        <div class="card-body card-quiz">
+          <p class="card-tag">quick check</p>
+          <p class="card-hint">which one is the real me?</p>
+          <div class="quiz-box">
+            <p class="quiz-q">Top artist di spotify ku adala....</p>
+            <div class="quiz-opts">
+              <button class="quiz-btn" onclick="this.classList.add('wrong')">frank ocean</button>
+              <button class="quiz-btn" onclick="this.classList.add('wrong')">LANY</button>
+              <button class="quiz-btn right"
+                onclick="this.classList.add('correct'); document.getElementById('quiz-res').style.opacity = 1;">Daniel Caesar</button>
+            </div>
+            <p class="quiz-res" id="quiz-res">hahaha u got me</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: PLAYLIST (NEW) -->
+      <div class="card" data-i="5">
+        <div class="card-body card-playlist">
+          <p class="card-tag">vibes playlist</p>
+          <p class="card-hint">lagu yang remind me about u, idk why hehe</p>
+          <div class="track-list">
+            <div class="track">
+              <div class="track-icon">▶</div>
+              <div class="track-info">
+                <p class="track-title">Alonica</p>
+                <p class="track-art">Lany</p>
+              </div class="song" data-src="mp3/alonica.mp3">
+              </div>
+            </div>
+            <div class="track">
+              <div class="track-icon">▶</div>
+              <div class="track-info">
+                <p class="track-title">Blessed</p>
+                <p class="track-art">Daniel Caesar</p>
+              </div>
+            </div>
+            <div class="track">
+              <div class="track-icon">▶</div>
+              <div class="track-info">
+                <p class="track-title">I quit Dricking</p>
+                <p class="track-art">Lany</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: SCRATCH -->
+      <div class="card" data-i="6">
+        <div class="card-body card-scratch">
+          <p class="card-tag">secret confession</p>
+          <p class="card-hint">scratch to reveal ♡</p>
+          <div class="scratch-wrap">
+            <canvas id="scratch-canvas" width="300" height="170"></canvas>
+            <div class="scratch-msg">
+              <p>tbh,i dont expect<br />gw berubah sebanyak ini sejak<br />ketemu dan deket sama lu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: KESAN CAROUSEL -->
+      <div class="card" data-i="7">
+        <div class="card-body card-kesan">
+          <p class="card-tag">late night thoughts</p>
+          <div class="kesan-box" id="kesan-box">
+            <div class="kesan active">"idk why, tapi chat dari lu selalu jadi highlight of my day."</div>
+            <div class="kesan">"kalau dipikir-pikir, the fact that i fell for you is pretty crazy."</div>
+            <div class="kesan">"gw kadang mikir... gimana ya kalo kita hangout ke alonica cafe or lany concert?."</div>
+          </div>
+          <div class="kesan-dots" id="kesan-dots"></div>
+        </div>
+      </div>
+
+      <!-- 9: WISHES -->
+      <div class="card" data-i="8">
+        <div class="card-body card-wishes">
+          <p class="card-tag">birthday wishes ♡</p>
+          <div class="wish-list" id="wish-list">
+            <div class="wish">semoga tahun ini lu dapet semua hal yang kamu manifest diam-diam</div>
+            <div class="wish">semoga disekitar lu dipenuhi orang-orang yang ngebawa good energy</div>
+            <div class="wish">semoga kamu makin proud sama diri kamu sendiri, cause u deserve it</div>
+            <div class="wish">and lastly... i wish our story just keeps getting better</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10: HOLD -->
+      <div class="card" data-i="9">
+        <div class="card-body card-hold">
+          <p class="card-tag">one last thing</p>
+          <p class="card-hint">hold the button down ♡</p>
+          <div class="hold-wrap">
+            <button class="hold-btn" id="hold-btn">
+              <svg class="hold-ring" viewBox="0 0 100 100">
+                <circle class="ring-bg" cx="50" cy="50" r="46" />
+                <circle class="ring-fill" id="ring-fill" cx="50" cy="50" r="46" />
+              </svg>
+              <span class="hold-label" id="hold-label">hold</span>
+            </button>
+            <div class="hold-msg" id="hold-msg">
+              <p>i made this bc i know u like a letter<br />but,tulis gw jelek bgt jir jdi diketik aja.<br /><em>sry i cant be someone that u want.</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11: CLOSING -->
+      <div class="card" data-i="10">
+        <div class="card-body card-end">
+          <img class="floral-decor floral-tl"
+            src="img/download (6).jpg">
+          <img class="floral-decor floral-br"
+            src="img/download (4).jpg" alt="decor">
+          <div class="end-flower">✦</div>
+          <p class="end-main">just a lil something<br />to make u smile today.</p>
+          <div class="end-divider"></div>
+          <p class="end-from">yours truly, <strong>Ibet</strong></p>
+          <p class="end-year">— 2026 —</p>
+          <button class="btn-replay" id="btn-magic">pencet ini la pokoknya</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SURPRISE END (MODAL) ===== -->
+  <div id="surprise-modal" class="surprise-modal hidden">
+    <div class="polaroid-wrapper">
+      <div class="polaroid">
+        <img src="img/pe.jpeg" alt="Memory" />
+        <p class="polaroid-caption">anjayyyyyyy wlekkk wkwkkwkkw
+        </p>
+      </div>
+      <button class="modal-close" id="modal-close">close</button>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <button class="music-btn" id="music-btn">
+    <span id="music-icon">♪</span>
+  </button>
+  <audio id="bg-music" loop preload="auto">
+    <source src="mp3/Alex Crichton - Merry Christmas, i miss you.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
